@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 
-input_text_file = 'Alphabet.txt'
+input_text_file = 'prices.txt'
 output_csv_file = 'prices.csv'
 temp_file = "temp.txt"
 
