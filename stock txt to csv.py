@@ -1,9 +1,17 @@
 import csv
+import os
 from datetime import datetime
 
 
-input_text_file = 'prices.txt'
+input_text_file = 'Alphabet.txt'
 output_csv_file = 'prices.csv'
+temp_file = "temp.txt"
+
+with open(input_text_file, "r") as infile, open(temp_file, "w") as outfile:
+    for line in infile:
+        if "Dividend" and "Stock" not in line:
+            outfile.write(line)
+os.replace(temp_file, input_text_file)
 
 data_to_write = []
 with open(input_text_file, 'r') as infile:
@@ -19,7 +27,7 @@ with open(input_text_file, 'r') as infile:
         values[5] = values[6]
         values[6] = temp
 
-        data_to_write.append(values)
+        data_to_write[:0] = [values]
 
 with open(output_csv_file, 'w', newline='') as outfile:
     writer = csv.writer(outfile)
