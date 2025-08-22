@@ -93,3 +93,20 @@ for i in range(len(models)):
 for i in range(3):
     ConfusionMatrixDisplay.from_estimator(models[i], X_valid, Y_valid)
 plt.show()
+
+# N = 7
+# latest_data = df.iloc[-N:].copy()
+#
+# latest_data['open-close'] = latest_data['Open'] - latest_data['Close']
+# latest_data['low-high'] = latest_data['Low'] - latest_data['High']
+# latest_data['is_quarter_end'] = np.where(latest_data['month'] % 3 == 0, 1, 0)
+#
+# future_features = latest_data[['open-close', 'low-high', 'is_quarter_end']]
+# future_scaled = scalar.transform(future_features)
+# predictions = models[0].predict(future_scaled)
+#
+# # Print predictions
+# print("\nFuture Predictions (1 = Up, 0 = Down):")
+# for i, pred in enumerate(predictions):
+#     date = pd.to_datetime(latest_data['Date'].iloc[i])
+#     print(f"{date.date()} -> {'Up' if pred == 1 else 'Down'}")
